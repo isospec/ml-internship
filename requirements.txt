@@ -6,7 +6,7 @@ certifi==2024.12.14
     # via requests
 charset-normalizer==3.4.0
     # via requests
-contourpy==1.3.1
+contourpy==1.3.0
     # via matplotlib
 cycler==0.12.1
     # via matplotlib
@@ -28,7 +28,7 @@ kiwisolver==1.4.7
     # via matplotlib
 markupsafe==3.0.2
     # via jinja2
-matplotlib==3.10.0
+matplotlib==3.9.4
     # via
     #   mpld3
     #   seaborn
@@ -36,9 +36,9 @@ matplotlib-inline==0.1.7
     # via glycowork
 mpld3==0.5.10
     # via glycowork
-networkx==3.4.2
+networkx==3.2
     # via glycowork
-numpy==2.2.1
+numpy==2.0.0
     # via
     #   contourpy
     #   matplotlib
@@ -79,7 +79,7 @@ requests==2.32.3
     # via gdown
 scikit-learn==1.6.0
     # via glycowork
-scipy==1.14.1
+scipy==1.13.1
     # via
     #   glycowork
     #   scikit-learn
