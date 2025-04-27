@@ -26,6 +26,32 @@ ml-internship/
 └── README.md                     # You are here  
 ```
 
+## Content
+
+1. **TASK 1**: **Biomarker Discovery**
+    - *TASK1_EDA.ipynb*: Exploratory Data Analysis
+        - Loads the data matrix, feature metadata and sample metadata, then inspects shapes and missing values.
+        - Computes key quality metrics—Coefficient of Variation (CV) across pooled QCs and Dispersion Ratio (D-Ratio)—to gauge technical vs. biological variability.
+        - Searches for potential isomers (same m/z, different RT) and isotopes/adducts (same RT, different m/z), looks at their pairwise correlations, and examines detection rates across m/z, RT and sample classes.
+        - Assesses contamination levels (blanks vs. real samples), checks consistency of exogenous standards, and explores intensity distributions by class and run order to flag drift or batch effects.
+    - *TASK1_data_processing.ipynb*: Data Processing and Cleaning
+        - Applies filtering rules to keep only features with low within-QC variability (< 30% CV), high detection support (≥ 70% of samples), and mass > 500 m/z.
+        - Calculates D-Ratio per feature to identify those with excessive technical noise.
+        - Tests normalization methods (median normalization, then global scaling) to normalize sample intensities and visualizes pre- and post-normalization distributions.
+        - Performs a “final check” on kept features & samples, resulting in the cleaned data matrix to continue biomarker discovery.
+    - *TASK1_discriminatory_analysis.ipynb*: 
+        - Statistical Significance: Runs ANOVA across the three mapped classes (cancer, benign, healthy), applies FDR correction and post-hoc comparisons to features.
+        - Predictive Modeling: Trains Random Forest and L1-regularized logistic regression to rank features by importance/coefficients, then finds common top predictors.
+        - Decision Boundaries and Visualisation: Explores LDA and PCA projections to illustrate class separation, and evaluates model performance.
+        - Concludes with a panel of glycan features that contains discovered biomarkers.
+2. **TASK 2**: **Biomarker Embedding**
+    - *TASK2_biomarker_embedding.ipynb*: Glycan Embedding and Enrichment
+        - Plan: Defines a two-part strategy: first learn an embedding of the full glycan library based on sequence, composition, tissue and species origin, then project the discovered biomarkers into that space.
+        - Part 1: Preprocesses `df_glycan.pkl` and `N_glycans_df.pkl`, engineers features from glycan sequences/compositions and trains an embedding model, e.g. via dimensionality reduction.
+        - Part 2: Applies the learned embedding to the discovered glycans in `glycan_list.csv`, then for each biomarker infers disease associations and konwn protein-glycan binding partners from `glycan_binding.pkl` using propagation of labels after clustering.
+        - Validates that known N-glycans cluster appropriately in embedding space.
+
+
 ## ▶️ Usage
 
 Open and run the notebooks in this order:
