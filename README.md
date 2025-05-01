@@ -12,10 +12,22 @@ This repository contains code, notebooks and helper scripts for the machine-lear
 ```
 ml-internship/
 ├── data/  
-│   ├── df_glycan.csv             # Glycan feature table  
-│   ├── glycan_binding.csv        # Protein–glycan binding data  
-│   └── …                         
+│   ├── input/
+│   │   ├── exogenous_standards.csv           # Exogenous Standards
+│   │   ├── internship_data_matrix.csv        # Main Data Matrix with peak area values of features
+│   │   ├── internship_feature_metadata.csv   # Feature Metadata
+│   │   ├── intership_acquisition_list.csv    # Sample metadata including batch and run order
+│   │   ├── clean_data_matrix.csv             # Pre-processed data matrix obtained from Data Processing
+│   ├── glycan_embedding
+│   │   ├── glycan_list.csv      # List of discovered glycans
+│   │   ├── df_glycan.pkl        # Glycan dataset
+│   │   ├── glycan_binding.pkl   # Protein-glycan binding interactions
+│   │   ├── N_glycans_df.pkl     # N-glycans sequences to use for control
+│   ├── biomarkers
+│   │   ├── biomarker_panel.csv  # Final Biomarker Panel obtained from Discriminatory Analysis
+│   └──                       
 ├── notebooks/  
+│   ├── TASK1_EDA.ipynb
 │   ├── TASK1_data_processing.ipynb  
 │   ├── TASK1_discriminatory_analysis.ipynb 
 │   └── TASK2_biomarker_embedding.ipynb  
@@ -54,7 +66,11 @@ ml-internship/
 
 ## ▶️ Usage
 
-Open and run the notebooks in this order:
+There’s no need to rerun the notebooks, all cells have already been executed. Please open them in the following order:
+
+```bash
+jupyter lab notebooks/TASK1_EDA.ipynb
+```
 
 ```bash
 jupyter lab notebooks/TASK1_data_processing.ipynb
@@ -68,7 +84,9 @@ jupyter lab notebooks/TASK1_discriminatory_analysis.ipynb
 jupyter lab notebooks/TASK2_biomarker_embedding.ipynb
 ```
 
-Steps are clearly documented with code cells and inline commentary.  
+Steps are clearly documented with code cells and inline commentary. 
+ 
+Note: If you do rerun the notebooks, `TASK2_biomarker_embedding.ipynb` takes a long time to run. 
 
 ---
 
